@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "2b8c014c61b5cd9be05086a0f479018e"
+name = "bundles-app"
+handle = "bundles-app-48"
+application_url = "https://papua-barriers-opening-new.trycloudflare.com"
+embedded = true
+
+[build]
+dev_store_url = "archbtw.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://papua-barriers-opening-new.trycloudflare.com/auth/callback",
+  "https://papua-barriers-opening-new.trycloudflare.com/auth/shopify/callback",
+  "https://papua-barriers-opening-new.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+[pos]
+embedded = false
