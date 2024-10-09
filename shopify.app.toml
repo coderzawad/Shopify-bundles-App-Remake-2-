@@ -3,10 +3,11 @@
 client_id = "2b8c014c61b5cd9be05086a0f479018e"
 name = "bundles-app"
 handle = "bundles-app-48"
-application_url = "https://papua-barriers-opening-new.trycloudflare.com"
+application_url = "https://old-document-rh-poetry.trycloudflare.com"
 embedded = true
 
 [build]
+automatically_update_urls_on_dev = true
 dev_store_url = "archbtw.myshopify.com"
 
 [access_scopes]
@@ -15,9 +16,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://papua-barriers-opening-new.trycloudflare.com/auth/callback",
-  "https://papua-barriers-opening-new.trycloudflare.com/auth/shopify/callback",
-  "https://papua-barriers-opening-new.trycloudflare.com/api/auth/callback"
+  "https://old-document-rh-poetry.trycloudflare.com/auth/callback",
+  "https://old-document-rh-poetry.trycloudflare.com/auth/shopify/callback",
+  "https://old-document-rh-poetry.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

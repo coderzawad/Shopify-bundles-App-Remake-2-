@@ -85,7 +85,7 @@ app.post("/api/save-bundle", async (req, res) => {
 
   try {
     const session = res.locals.shopify.session;
-    const client = new shopify.clients.Graphql({session});
+    const client = new shopify.api.clients.Graphql({session});
 
     // Fetch full details for each product
     const productDetailsQuery = `
@@ -111,7 +111,7 @@ app.post("/api/save-bundle", async (req, res) => {
       }
     `;
 
-    const productIds = selectedProducts.map(p => `gid://shopify/Product/${p.id}`);
+    const productIds = selectedProducts.map(p => `${p.id}`);
     const productDetailsResponse = await client.query({
       data: {
         query: productDetailsQuery,
@@ -159,7 +159,7 @@ app.post("/api/save-bundle", async (req, res) => {
         }
       }
     });
-
+ 
     const result = response.body.data.productBundleCreate;
 
     if (result.userErrors.length > 0) {

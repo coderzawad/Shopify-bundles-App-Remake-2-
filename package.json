@@ -11,7 +11,9 @@
     "generate": "shopify app generate",
     "deploy": "shopify app deploy"
   },
-  "dependencies": {},
+  "dependencies": {
+    "mongoose": "^8.7.0"
+  },
   "author": "katcode",
   "private": true,
   "workspaces": [
