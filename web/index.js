@@ -168,12 +168,14 @@ app.post("/api/save-bundle", async (req, res) => {
 
     const operationId = result.productBundleOperation.id;
 
-     const pollForStatus = async () => {
+    const pollForStatus = async () => {
       const statusQuery = `
         query {
-          productBundleOperation(id: "${operationId}") {
-            status
-            productId
+          node(id: "${operationId}") {
+            ... on ProductBundleOperation {
+              id
+              status
+            }
           }
         }
       `;
@@ -182,10 +184,11 @@ app.post("/api/save-bundle", async (req, res) => {
         data: { query: statusQuery }
       });
 
-      const operation = statusResponse.body.data.productBundleOperation;
+      const operation = statusResponse.body.data.node;
 
       if (operation.status === 'COMPLETED') {
-        const productId = operation.productId.split('/').pop();
+        const productBundleId = operation.productBundle.id;
+        const productId = productBundleId.split('/').pop();
         const shopSubdomain = session.shop.split(".")[0];
         const productEditUrl = `https://admin.shopify.com/store/${shopSubdomain}/products/${productId}`;
 
@@ -214,6 +217,8 @@ app.post("/api/save-bundle", async (req, res) => {
     res.status(500).json({ message: "Failed to create bundle", error: e.message });
   }
 });
+
+
 app.get("/api/get-bundles", async (req, res) => {
   try {
     const session = res.locals.shopify.session;

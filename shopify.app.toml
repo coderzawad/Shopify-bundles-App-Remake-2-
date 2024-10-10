@@ -3,7 +3,7 @@
 client_id = "2b8c014c61b5cd9be05086a0f479018e"
 name = "bundles-app"
 handle = "bundles-app-48"
-application_url = "https://old-document-rh-poetry.trycloudflare.com"
+application_url = "https://donald-landing-newport-neighbors.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://old-document-rh-poetry.trycloudflare.com/auth/callback",
-  "https://old-document-rh-poetry.trycloudflare.com/auth/shopify/callback",
-  "https://old-document-rh-poetry.trycloudflare.com/api/auth/callback"
+  "https://donald-landing-newport-neighbors.trycloudflare.com/auth/callback",
+  "https://donald-landing-newport-neighbors.trycloudflare.com/auth/shopify/callback",
+  "https://donald-landing-newport-neighbors.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
