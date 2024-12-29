@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Get the Chromium window ID
+WINDOW_ID=$(xdotool search --onlyvisible --class chromium | head -n 1)
+
+if [ -z "$WINDOW_ID" ]; then
+    echo "Chromium not found!"
+    exit 1
+fi
+
+echo "Monitoring Chromium window: $WINDOW_ID"
+
+while true; do
+    # Get the current window state
+    STATE=$(xprop -id "$WINDOW_ID" _NET_WM_STATE)
+
+    if echo "$STATE" | grep -q "_NET_WM_STATE_HIDDEN"; then
+        echo "Window minimized. Putting the system to sleep..."
+        systemctl suspend
+        exit
+    fi
+
+    sleep 1
+done
